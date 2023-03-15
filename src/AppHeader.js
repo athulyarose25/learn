@@ -6,8 +6,9 @@ import { ReactComponent as Img } from "./user.svg";
 import { Typography } from 'antd';
 import { Pagination } from 'antd';
 
+import './index.css';
 
-import { FilterTwoTone, CheckOutlined,PlusOutlined, FilePdfOutlined,CheckCircleTwoTone ,FilterFilled ,PlusCircleTwoTone ,MenuOutlined, DownOutlined, UserOutlined} from '@ant-design/icons';
+import { FilterTwoTone, CheckOutlined,PlusOutlined, FilePdfOutlined,CheckCircleTwoTone ,FilterFilled ,PlusCircleTwoTone ,MenuOutlined, DownOutlined, UserOutlined, FilePdfTwoTone, PlusCircleFilled, CheckCircleFilled, BugTwoTone, CreditCardFilled, MailFilled} from '@ant-design/icons';
 
 import {
   CDBSidebar,
@@ -25,6 +26,21 @@ const { Text } = Typography;
 const { Header, Footer, Sider, Content } = Layout;
 
 const columns = [
+  {
+    title: <MailFilled style={{color:'dimgray'}}/>,
+    dataIndex: 'mail',
+    responsive: ['lg'],
+
+
+  width: '2%',
+  render: (BL, record) => (
+    <Typography.Text style={{ fontSize: record.size }}>
+      {BL}
+    </Typography.Text>
+  )
+//  sortDirections: ['descend'],
+
+},
     {
       title: 'BL Number',
       dataIndex: 'BL',
@@ -328,7 +344,7 @@ const data = [  {
     responsive: ['lg'],
     Payable:'USD 845',
     Due:'USD 730',
- 
+    mail:<MailFilled style={{color:'darkgray'}}/>
 },
 {
   key: '3',
@@ -348,6 +364,70 @@ const data = [  {
 },
 {
   key: '4',
+  BL: 'HLCUMEA2105',
+  CON: 'Best',
+  Nominated: 'boatteng',
+  POL:'',
+  POD:'',
+  End:'',
+  Instruction: ['Completed'],
+  Payement: ['Print Initiated'],
+  Release:['Released'],
+     responsive: ['lg'],
+     Payable:'',
+     Due:'',
+  
+},
+{
+  key: '5',
+  BL: 'HLCUMEA2105',
+  CON: 'Best',
+  Nominated: 'boatteng',
+  POL:'',
+  POD:'',
+  End:'',
+  Instruction: ['Completed'],
+  Payement: ['Print Initiated'],
+  Release:['Released'],
+     responsive: ['lg'],
+     Payable:'',
+     Due:'',
+  
+},
+{
+  key: '6',
+  BL: 'HLCUMEA2105',
+  CON: 'Best',
+  Nominated: 'boatteng',
+  POL:'',
+  POD:'',
+  End:'',
+  Instruction: ['Completed'],
+  Payement: ['Print Initiated'],
+  Release:['Released'],
+     responsive: ['lg'],
+     Payable:'',
+     Due:'',
+  
+},
+{
+  key: '7',
+  BL: 'HLCUMEA2105',
+  CON: 'Best',
+  Nominated: 'boatteng',
+  POL:'',
+  POD:'',
+  End:'',
+  Instruction: ['Completed'],
+  Payement: ['Print Initiated'],
+  Release:['Released'],
+     responsive: ['lg'],
+     Payable:'',
+     Due:'',
+  
+},
+{
+  key: '8',
   BL: 'HLCUMEA2105',
   CON: 'Best',
   Nominated: 'boatteng',
@@ -436,7 +516,7 @@ export default function AppHeader() {
           style={{
             backgroundColor: '#F5F5F5',
             width: '100%',
-            height:'5%'
+            height:'5%'//to change side navbar icons to top
            
           }}
         >
@@ -451,9 +531,9 @@ export default function AppHeader() {
           <Row
             align="bottom"
             style={{
-              height: 100,
+              height: 80,
              
-              paddingTop: 40,
+              paddingTop: 10,
        // fontSize: '1px'
          
             
@@ -466,9 +546,10 @@ export default function AppHeader() {
                     position:'absolute',
                   //  bottom: '9px',
                   //  left: '0.7', 
-                   top: '35px', //change image position
-               //  bottom:'9',
-                   width: '80',
+              
+                   top: '20px', //change image position
+                 bottom:'10',
+                   width: '20',
            
                     
                 }}
@@ -522,13 +603,13 @@ export default function AppHeader() {
  <div >
           <Form >
        
-          <Col style={{ textAlign: "right", marginLeft: 20 ,padding:10,}}    >
+          <Col style={{ textAlign: "right", marginLeft: '90px' ,padding:30,}}    >
              <Form.Item  
              
              /* label={ <p style={{fontSize:"10px",  marginLeft:'1px', marginTop:'2px' ,marginRight:'64px'}}>Credit Balance</p> } labelCol={{span:24}} */  >
                
-            {/* make credit card down */}
-              <label style={{fontSize:"10px" ,marginLeft: 11,marginTop:'10px' ,marginLeft: 7}} >Credit Balance</label>
+            {/* make credit card text  margin Top down */}
+              <label style={{fontSize:"12px",marginTop:'10px' }} >Credit Balance</label>
             
             
              
@@ -541,10 +622,10 @@ export default function AppHeader() {
       <br />
 
       
-     <Dropdown menu={menuProps} style={{marginRight: 5 }} >
-<Button size="small" style={{  border:'none' , background: 'transparent' }}  danger >
+     <Dropdown menu={menuProps} style={{ }} >
+<Button size="middle" style={{  border:'none' , background: 'transparent', position:'absolute',marginLeft: -100 }}  danger >
 
-<Text style={{fontSize:"10px"}} type="danger" >USD600.00</Text>
+<Text style={{fontSize:"13px"}} type="danger" >USD600.00</Text>
 
  <DownOutlined  />
 
@@ -558,11 +639,12 @@ export default function AppHeader() {
            
              </div> 
              
-            <Col  style={{  textAlign: "top", marginLeft: 100 ,marginBottom: '30px' }} >
+            <Col  style={{  marginLeft: 20 ,marginTop: -30 ,}} >
            
-           <Text style={{fontSize:"11px", marginTop:'10px'}}>Test User</Text>  
-           
-           {/* <Text style={{fontSize:"11px", marginTop:'10px'}}disabled>Reliance Industries</Text> */}   
+           <Text style={{fontSize:"13px",marginTop: '70px',position:'absolute'}}><b>Test User</b></Text>  
+           <br/>
+        {/*  postionTop to change test user position */}
+           <Text style={{fontSize:"11px",marginLeft: 2 ,marginTop: '70px'}}disabled>Reliance Industries</Text>     
             {/* <Text>Test User</Text> */}
          
             </Col>
@@ -602,7 +684,7 @@ export default function AppHeader() {
                 display: "-ms-grid",
                 justifyContent: "left",
                 alignItems: "center",
-                height: 46
+                height: 47
                 
          /* 
                 width: '70px',
@@ -613,37 +695,50 @@ export default function AppHeader() {
                   // stroke: "white" 
            
               }}>
-             <div style={{ padding: 1 }}>
-            <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+             <div style={{ padding: 9 }}>
+            <Space direction="vertical" size="large" style={{ display: 'flex' }}>
     <Card  size="small">
      
-    <FilterTwoTone  twoToneColor="red"  style={{  margin: '4px',
+    <FilterFilled    style={{  margin: '5px',
 display:'inline-block',
   borderStyle:'double' ,
-  borderWidth: 'medium',       /* sets border width on all sides */
-  borderColor: 'whitesmoke'
+  borderWidth: 'large',       /* sets border width on all sides */
+  borderColor: 'whitesmoke',
+  color:"red"
     }}/>
     <Space>
-     <PlusCircleTwoTone twoToneColor="#52c41a"  style={{ 
+     <PlusCircleFilled  style={{ 
+   margin: '5px',
   borderStyle:'double' ,
-  borderWidth: 'medium',       /* sets border width on all sides */
-  borderColor: 'whitesmoke'
+  borderWidth: 'large',       /* sets border width on all sides */
+  borderColor: 'whitesmoke',
+  color:"darkblue"
     }}/>
-     <MenuOutlined color="red" style={{  
-  borderStyle:'double' ,
-  borderWidth: 'medium',       /* sets border width on all sides */
-  borderColor: 'whitesmoke'
-    }}/>
-     <CheckCircleTwoTone twoToneColor="#52c41a" style={{  
-  borderStyle:'double' ,
-  borderWidth: 'medium',       /* sets border width on all sides */
-  borderColor: 'whitesmoke'
-    }} />
-        <MailOutlined style={{  margin: '1px',
+        <CreditCardFilled style={{  margin: '1px',
 	display:'inline-block',
-  borderStyle:'medium' ,
-  borderWidth: 'double',       /* sets border width on all sides */
-  borderColor: 'whitesmoke'
+  borderStyle:'double' ,
+  borderWidth: 'large',       /* sets border width on all sides */
+  borderColor: 'whitesmoke',
+  color:'green'
+    }}/>
+     <MenuOutlined style={{  
+  borderStyle:'double' ,
+  borderWidth: 'large',       /* sets border width on all sides */
+  borderColor: 'whitesmoke',
+  color:"darkred"
+    }}/>
+     <CheckCircleFilled  style={{  
+  borderStyle:'double' ,
+  borderWidth: 'large',       /* sets border width on all sides */
+  borderColor: 'whitesmoke',
+  color:"green"
+    }} />
+        <MailFilled style={{  margin: '1px',
+	display:'inline-block',
+  borderStyle:'double' ,
+  borderWidth: 'large',       /* sets border width on all sides */
+  borderColor: 'whitesmoke',
+  color:"dimgray"
     }}/>
         </Space>
                  </Card>
@@ -667,19 +762,64 @@ display:'inline-block',
   bordered 
           />
          
-          
-             <Pagination   
-      
+    <Footer style={{backgroundColor:'white',borderTop: '1px solid #ddd',height: '60px',
+lineHeight: '60px',border:"10px"}}> 
+    <Pagination   
+     /*  backgroundColor='white' */
       pageSize={10}
       defaultCurrent={1} 
       total={30} 
- 
+   
       responsive='true'
-     
-    /> 
+      showTotal={(total, range) => `${range[0]} to ${range[1]} of ${total} items` }
+      defaultPageSize={20}
+  
 
+      
+    /> 
+   
+    <Button style={{backgroundColor: 'white' ,width: '60px' ,height:'30px',marginLeft:1300,display: 'flex',marginTop:-40}} >
+      <FilePdfTwoTone  twoToneColor="red"  style={{  
+ //borderStyle:'double' ,
+ borderWidth: 'medium',       /* sets border width on all sides */
+ //borderColor: 'white'
+ height:'30px',
+ marginLeft:-8,//inside button change
+marginTop:'0rem',
+
+
+    }}/>
+    <Text style={{fontSize:"11px"}}><b>PDF</b></Text>
+      </Button>
+      <Button style={{backgroundColor: 'white' ,width: '60px' ,height:'30px',marginLeft:1390,display: 'flex',marginTop:-30}} >
+      <FilePdfTwoTone  twoToneColor="red"  style={{  
+ //borderStyle:'double' ,
+ borderWidth: 'medium',       /* sets border width on all sides */
+ //borderColor: 'white'
+ height:'30px',
+ marginLeft:-8,//inside button change
+marginTop:'0rem',
+
+
+    }}/>
+    <Text style={{fontSize:"11px"}}><b>CSV</b></Text>
+      </Button>
+    </Footer>
+  
+
+{/*   <div style={{ marginLeft:900 ,  backgroundColor: '#F5F5F5'}}> */}
+       {/*      <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+    <Card  size="small" align='right' > */}
+   
+    
+              
+      
  
-         
+   
+      {/*            </Card>
+    </Space> */}
+  {/*   </div> */}
+ 
 
    
           </Row>
@@ -697,7 +837,11 @@ display:'inline-block',
             <CDBSidebarMenuItem icon="credit-card" iconType="solid" textFontSize="14px">
               Sales
             </CDBSidebarMenuItem>
+        
+          
           </CDBSidebarMenu>
+
+
         </CDBSidebarContent>
 
         <CDBSidebarFooter style={{ textAlign: 'center' }}>
