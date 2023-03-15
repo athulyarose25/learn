@@ -2,7 +2,12 @@
   margin: 0;
   padding: 0;
 }
+.ant-pagination-total-text {
+  position: absolute;
 
+  right: 0;
+  left: 800px;
+}
 .navbar {
   display: flex;
   align-items: center;
