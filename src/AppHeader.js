@@ -8,7 +8,7 @@ import { Pagination } from 'antd';
 
 import './index.css';
 
-import { FilterTwoTone, CheckOutlined,PlusOutlined, FilePdfOutlined,CheckCircleTwoTone ,FilterFilled ,PlusCircleTwoTone ,MenuOutlined, DownOutlined, UserOutlined, FilePdfTwoTone, PlusCircleFilled, CheckCircleFilled, BugTwoTone, CreditCardFilled, MailFilled} from '@ant-design/icons';
+import { FilterTwoTone, CheckOutlined,PlusOutlined, FilePdfOutlined,CheckCircleTwoTone ,FilterFilled ,PlusCircleTwoTone ,MenuOutlined, DownOutlined, UserOutlined, FilePdfTwoTone, PlusCircleFilled, CheckCircleFilled, BugTwoTone, CreditCardFilled, MailFilled, GoogleOutlined, MobileTwoTone, BugFilled, PlusCircleOutlined} from '@ant-design/icons';
 
 import {
   CDBSidebar,
@@ -30,9 +30,10 @@ const columns = [
     title: <MailFilled style={{color:'dimgray'}}/>,
     dataIndex: 'mail',
     responsive: ['lg'],
+   
 
 
-  width: '2%',
+  width: '1%',
   render: (BL, record) => (
     <Typography.Text style={{ fontSize: record.size }}>
       {BL}
@@ -45,13 +46,13 @@ const columns = [
       title: 'BL Number',
       dataIndex: 'BL',
       responsive: ['lg'],
-
+     
    defaultSortOrder: 'descend',
     sorter: (a, b) => a.BL.length - b.BL.length,
     width: '10%',
     render: (BL, record) => (
-      <Typography.Text style={{ fontSize: record.size }}>
-        {BL}
+      <Typography.Text style={{ fontSize: '11px' }}>
+      <b><a href="#">{BL}</a></b>
       </Typography.Text>
     )
   //  sortDirections: ['descend'],
@@ -72,12 +73,12 @@ const columns = [
   )
   },
   {
-    title: 'nominated agent',
+    title: 'Agent',
     responsive: ['lg'],
     dataIndex: 'Nominated',
     //width: '5%%',
     responsive: ['lg'],
-    width: '15%',
+    width: '10%',
     render: (Nominated, record) => (
       <Typography.Text style={{ fontSize: record.size }}>
         {Nominated}
@@ -104,7 +105,7 @@ const columns = [
     defaultSortOrder: 'descend',
     responsive: ['lg'],
     sorter: (a, b) => a.POL - b.POL,
-   // width: '15%',
+    width: '2%',
     render: (POL, record) => (
       <Typography.Text style={{ fontSize: record.size }}>
         {POL}
@@ -118,7 +119,7 @@ const columns = [
   
     defaultSortOrder: 'descend',
     sorter: (a, b) => a.POD - b.POD,
-  //  width: '15%',
+    width: '2%',
     render: (POD, record) => (
       <Typography.Text style={{ fontSize: record.size }}>
         {POD}
@@ -132,7 +133,7 @@ const columns = [
     dataIndex: 'End',
     defaultSortOrder: 'descend',
     sorter: (a, b) => a.End - b.End,
-    //width: '15%',
+    width: '2%',
     render: (End, record) => (
       <Typography.Text style={{ fontSize: record.size }}>
         {End}
@@ -290,7 +291,7 @@ const columns = [
     sorter: (a, b) => a.age - b.age,
    // width: '10%',
     render: (Payable, record) => (
-      <Typography.Text style={{ fontSize: record.size }}>
+      <Typography.Text style={{ fontSize: "12px"}}>
         {Payable}
       </Typography.Text>
     )
@@ -303,7 +304,7 @@ const columns = [
     sorter: (a, b) => a.age - b.age,
     //width: '10%',
     render: (Due, record) => (
-      <Typography.Text style={{ fontSize: record.size }}>
+      <Typography.Text style={{ fontSize: "12px" }}>
         {Due}
       </Typography.Text>
     )
@@ -410,38 +411,8 @@ const data = [  {
      Due:'',
   
 },
-{
-  key: '7',
-  BL: 'HLCUMEA2105',
-  CON: 'Best',
-  Nominated: 'boatteng',
-  POL:'',
-  POD:'',
-  End:'',
-  Instruction: ['Completed'],
-  Payement: ['Print Initiated'],
-  Release:['Released'],
-     responsive: ['lg'],
-     Payable:'',
-     Due:'',
-  
-},
-{
-  key: '8',
-  BL: 'HLCUMEA2105',
-  CON: 'Best',
-  Nominated: 'boatteng',
-  POL:'',
-  POD:'',
-  End:'',
-  Instruction: ['Completed'],
-  Payement: ['Print Initiated'],
-  Release:['Released'],
-     responsive: ['lg'],
-     Payable:'',
-     Due:'',
-  
-}
+
+
 ];
 
 const onChange = ( filters, sorter, extra) => {
@@ -516,7 +487,7 @@ export default function AppHeader() {
           style={{
             backgroundColor: '#F5F5F5',
             width: '100%',
-            height:'5%'//to change side navbar icons to top
+            height:'3%'//to change side navbar icons to top
            
           }}
         >
@@ -603,13 +574,13 @@ export default function AppHeader() {
  <div >
           <Form >
        
-          <Col style={{ textAlign: "right", marginLeft: '90px' ,padding:30,}}    >
+          <Col style={{ textAlign: "right", marginLeft: '20px' ,padding:9,}}    >
              <Form.Item  
-             
+             //margin left 20 to move right icon left
              /* label={ <p style={{fontSize:"10px",  marginLeft:'1px', marginTop:'2px' ,marginRight:'64px'}}>Credit Balance</p> } labelCol={{span:24}} */  >
                
             {/* make credit card text  margin Top down */}
-              <label style={{fontSize:"12px",marginTop:'10px' }} >Credit Balance</label>
+              <label style={{fontSize:"12px",marginTop:'0px' }} >Credit Balance</label>
             
             
              
@@ -623,7 +594,7 @@ export default function AppHeader() {
 
       
      <Dropdown menu={menuProps} style={{ }} >
-<Button size="middle" style={{  border:'none' , background: 'transparent', position:'absolute',marginLeft: -100 }}  danger >
+<Button size="small" style={{  border:'none' , background: 'transparent', position:'absolute',marginLeft: -100 }}  danger >
 
 <Text style={{fontSize:"13px"}} type="danger" >USD600.00</Text>
 
@@ -638,13 +609,13 @@ export default function AppHeader() {
              </Form>
            
              </div> 
-             
-            <Col  style={{  marginLeft: 20 ,marginTop: -30 ,}} >
-           
-           <Text style={{fontSize:"13px",marginTop: '70px',position:'absolute'}}><b>Test User</b></Text>  
+             {/* Top to chnage whole right */}
+            <Col  style={{  marginLeft: 20 ,marginTop: -20 ,}} >
+            {/*  postionTop to change test user position */}
+           <Text style={{fontSize:"13px",marginTop: 70,position:'absolute'}}><b>Test User</b></Text>  
            <br/>
-        {/*  postionTop to change test user position */}
-           <Text style={{fontSize:"11px",marginLeft: 2 ,marginTop: '70px'}}disabled>Reliance Industries</Text>     
+        {/*  postionTop to changeeliance Industries top position */}
+           <Text style={{fontSize:"11px",marginLeft: 2 , marginTop: '15px' }}disabled>Odex TestUser</Text>     
             {/* <Text>Test User</Text> */}
          
             </Col>
@@ -659,7 +630,8 @@ export default function AppHeader() {
                   alignItems: "center",
                   borderRadius: "50%",
                   marginLeft: 14,
-                  marginBottom:'30px'
+                  marginBottom:'10px'//change the right login image position to bottom
+                  
                 }}
               >
                
@@ -684,7 +656,8 @@ export default function AppHeader() {
                 display: "-ms-grid",
                 justifyContent: "left",
                 alignItems: "center",
-                height: 47
+                height: 48,
+               
                 
          /* 
                 width: '70px',
@@ -696,7 +669,7 @@ export default function AppHeader() {
            
               }}>
              <div style={{ padding: 9 }}>
-            <Space direction="vertical" size="large" style={{ display: 'flex' }}>
+            <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
     <Card  size="small">
      
     <FilterFilled    style={{  margin: '5px',
@@ -707,12 +680,12 @@ display:'inline-block',
   color:"red"
     }}/>
     <Space>
-     <PlusCircleFilled  style={{ 
+     <PlusCircleOutlined  style={{ 
    margin: '5px',
   borderStyle:'double' ,
   borderWidth: 'large',       /* sets border width on all sides */
   borderColor: 'whitesmoke',
-  color:"darkblue"
+  color:"blue"
     }}/>
         <CreditCardFilled style={{  margin: '1px',
 	display:'inline-block',
@@ -762,8 +735,8 @@ display:'inline-block',
   bordered 
           />
          
-    <Footer style={{backgroundColor:'white',borderTop: '1px solid #ddd',height: '60px',
-lineHeight: '60px',border:"10px"}}> 
+    <Footer   style={{backgroundColor:'white',borderTop: '1px solid #ddd',height: '60px',
+lineHeight: '10px',border:"10px",  width: '100%',}}> 
     <Pagination   
      /*  backgroundColor='white' */
       pageSize={10}
@@ -778,7 +751,7 @@ lineHeight: '60px',border:"10px"}}>
       
     /> 
    
-    <Button style={{backgroundColor: 'white' ,width: '60px' ,height:'30px',marginLeft:1300,display: 'flex',marginTop:-40}} >
+    <Button style={{backgroundColor: 'white' ,width: '60px' ,height:'23px',marginLeft:1000,display: 'flex',marginTop:-40}} >
       <FilePdfTwoTone  twoToneColor="red"  style={{  
  //borderStyle:'double' ,
  borderWidth: 'medium',       /* sets border width on all sides */
@@ -791,7 +764,7 @@ marginTop:'0rem',
     }}/>
     <Text style={{fontSize:"11px"}}><b>PDF</b></Text>
       </Button>
-      <Button style={{backgroundColor: 'white' ,width: '60px' ,height:'30px',marginLeft:1390,display: 'flex',marginTop:-30}} >
+      <Button style={{backgroundColor: 'white' ,width: '60px' ,height:'22px',marginLeft:1080,display: 'flex',marginTop:-23}} >
       <FilePdfTwoTone  twoToneColor="red"  style={{  
  //borderStyle:'double' ,
  borderWidth: 'medium',       /* sets border width on all sides */
@@ -832,12 +805,12 @@ marginTop:'0rem',
              </CDBSidebarHeader>
         <CDBSidebarContent >
           <CDBSidebarMenu>
-            <CDBSidebarMenuItem icon="th-large">Dashboard</CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="sticky-note">Components</CDBSidebarMenuItem>
-            <CDBSidebarMenuItem icon="credit-card" iconType="solid" textFontSize="14px">
-              Sales
-            </CDBSidebarMenuItem>
-        
+          <CDBSidebarMenuItem ><GoogleOutlined /></CDBSidebarMenuItem>
+          <CDBSidebarMenuItem ><MobileTwoTone  twoToneColor='black'/></CDBSidebarMenuItem>
+            <CDBSidebarMenuItem ><BugFilled /></CDBSidebarMenuItem>
+            <CDBSidebarMenuItem ><MobileTwoTone twoToneColor='black'/></CDBSidebarMenuItem>
+     
+           
           
           </CDBSidebarMenu>
 
